@@ -48,16 +48,13 @@ Example: `export SSLKEYLOGFILE=$HOME/premaster_<rollno>.txt`
 ## Part 3: My own capture
 
 Files submitted:
-- `my_local_<rollno>.pcapng`
-- `premaster_<rollno>.txt`
+- `my_local_23110078.pcapng`
+- `premaster_23110078.txt`
 
-Steps I followed:
-1. Set `SSLKEYLOGFILE` to `premaster_<rollno>.txt` and launched Chrome from the same terminal.
-2. Started a Wireshark capture on my active network interface.
-3. In an incognito window, with no accounts logged in, I visited a public website and sent a harmless query to an AI chatbot.
-4. Stopped the capture and saved it as `my_local_<rollno>.pcapng`.
-5. Loaded `premaster_<rollno>.txt` in **Edit → Preferences → Protocols → TLS** and confirmed the traffic decrypts.
+Steps:
+1. Fully quit Chrome, then launched it from Terminal with `SSLKEYLOGFILE=$HOME/premaster_23110078.txt` set, in incognito mode.
+2. Started a Wireshark capture on my Wi-Fi interface (en0).
+3. Visited public websites without logging in, then stopped and saved the capture.
+4. Loaded the premaster file in Wireshark under Preferences, Protocols, TLS and confirmed the traffic decrypts.
 
-![my decrypted capture](screenshots/6.jpeg)
-
-No passwords, logins, tokens, or personal data were present in the capture.
+No account logins or personal credentials were used during the capture (incognito session, no sign-in).
